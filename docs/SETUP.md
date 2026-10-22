@@ -1,5 +1,34 @@
 # Setting up the LinkedIn application
 
+## The Company Page
+
+Creating an application asks for a Company Page, and the wording on that
+screen is confusing enough to be worth spelling out.
+
+**Individual developers have a default Company Page.** It already exists,
+and it is associated with the API products you can request. Look for it in
+the dropdown on that screen before typing anything new, and select it. That
+is the path the screen is describing when it says you "must select that
+default Company page to proceed".
+
+**If there is no default page for you**, entering a company name that does
+not exist creates one. The name becomes a LinkedIn Page with your name on
+it, and you are its administrator — which is what matters, because:
+
+> Verification can be done by a Page Admin.
+
+You are the Page Admin of a page you just created, so you can verify the
+application yourself. There is no waiting for anyone else.
+
+**A member profile page will not work.** The screen says so explicitly,
+and it is the reason a lot of people get stuck here: the obvious thing is
+to paste your own profile URL, and it is refused.
+
+**What to name it.** The app's name and the Company Page are public. They
+show up on the application, which anyone can look at. Pick something that
+looks deliberate — the same name you use everywhere else is the right
+answer, not a throwaway.
+
 ## The products, and why there are two
 
 | Product | What it grants | How you get it |
