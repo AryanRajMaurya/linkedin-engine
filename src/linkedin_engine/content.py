@@ -70,6 +70,13 @@ def _get_json(url: str, token: str | None = None) -> Any:
         with urllib.request.urlopen(request, timeout=30) as response:  # noqa: S310
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as error:
+        if error.code == 403:
+            raise RuntimeError(
+                "GitHub refused the request (403). This is almost always the "
+                "unauthenticated rate limit: 60 requests an hour per address, "
+                "and a shared address hits it quickly. Pass a token with "
+                "--token to raise the limit to 5,000 an hour."
+            ) from error
         raise RuntimeError(f"GitHub returned {error.code} for {url}") from error
     except urllib.error.URLError as error:
         raise RuntimeError(f"could not reach GitHub: {error.reason}") from error
@@ -126,6 +133,7 @@ def fetch_artefacts(
         newest first.
     """
     artefacts: list[Artefact] = []
+    problems: list[str] = []
 
     # Merged pull requests.
     query = f"is:pr is:merged author:{username} merged:>={since}" + (
@@ -149,8 +157,8 @@ def fetch_artefacts(
                     number=item.get("number"),
                 )
             )
-    except RuntimeError:
-        pass
+    except RuntimeError as error:
+        problems.append(str(error))
 
     # Published releases.
     try:
@@ -181,8 +189,8 @@ def fetch_artefacts(
                         tags=list(repo.get("topics") or []),
                     )
                 )
-    except RuntimeError:
-        pass
+    except RuntimeError as error:
+        problems.append(str(error))
 
     # New repositories.
     try:
@@ -207,8 +215,14 @@ def fetch_artefacts(
                     tags=list(repo.get("topics") or []),
                 )
             )
-    except RuntimeError:
-        pass
+    except RuntimeError as error:
+        problems.append(str(error))
+
+    # If every lookup failed, the caller was not told "there is no activity",
+    # it was told "GitHub refused". Those are very different things, and
+    # silently returning nothing makes a rate limit look like a quiet week.
+    if problems and not artefacts:
+        raise RuntimeError("; ".join(dict.fromkeys(problems)))
 
     artefacts.sort(key=lambda a: a.url)
     return artefacts

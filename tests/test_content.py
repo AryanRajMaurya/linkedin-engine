@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import pytest
+
 from linkedin_engine import content
 from linkedin_engine.publish import publish
 from linkedin_engine.quality import Level
@@ -120,3 +122,20 @@ def test_warnings_do_not_block_publishing() -> None:
     result = publish(client, good, dry_run=False)
 
     assert not [f for f in result.findings if f.level is Level.ERROR]
+
+
+def test_fetch_artefacts_surfaces_a_failure(monkeypatch) -> None:
+    """A rate limit must not look like a quiet week.
+
+    The GitHub API refuses unauthenticated requests over a shared address,
+    and returning an empty list in that case makes the tool look like there
+    was simply no activity. The caller has to be told which it was.
+    """
+
+    def boom(*args, **kwargs):
+        raise RuntimeError("GitHub refused the request (403)")
+
+    monkeypatch.setattr(content, "_get_json", boom)
+
+    with pytest.raises(RuntimeError, match="403"):
+        content.fetch_artefacts(username="someone", since="2026-01-01")
