@@ -107,3 +107,20 @@ def test_the_links_are_not_pushed_to_the_api() -> None:
     )
     result = profile_module.apply_profile(_FakeClient(), written)
     assert "websites" not in result["changed"]
+
+
+def test_the_content_suite_points_at_the_channel_not_a_repository() -> None:
+    """The product's public face is the channel it publishes to."""
+    written = profile_module.load_profile(REPO_ROOT / "content" / "profile.json")
+    entry = next(
+        e for e in written.experience if e.organisation == "Cross-Platform Content Automation Suite"
+    )
+    assert "youtube.com/@theizgiv" in entry.url
+    assert "github.com" not in entry.url
+    assert any("autonomous" in h.lower() for h in entry.highlights)
+
+
+def test_the_izgiv_entry_reveals_the_autoposter() -> None:
+    written = profile_module.load_profile(REPO_ROOT / "content" / "profile.json")
+    entry = next(e for e in written.experience if e.organisation == "IZGIV")
+    assert any("TheIZGIV" in h for h in entry.highlights)

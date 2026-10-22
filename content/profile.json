@@ -16,6 +16,7 @@
       "url": "https://github.com/AryanRajMaurya",
       "highlights": [
         "Built and run a multi-node product ecosystem: an agentic voice assistant, self-hosted LLM inference hosting, a paid AI chat panel and a high-fidelity media streaming service.",
+        "Shipped @TheIZGIV, an autonomous content agent that publishes to YouTube, Instagram and Facebook without a human in the publishing loop.",
         "Shipped shipfree, an open-source Agent Skill for deploying AI services on free tiers, whose limits are verified against upstream documentation by CI.",
         "Run the whole stack on Docker and Cloudflare edge tooling, with a hardened CachyOS/Arch environment and no paid infrastructure in the serving path."
       ]
@@ -35,10 +36,11 @@
       "title": "AI/ML Developer and Automation Engineer",
       "organisation": "Cross-Platform Content Automation Suite",
       "period": "2026",
-      "url": "https://github.com/AryanRajMaurya",
+      "url": "https://www.youtube.com/@theizgiv",
       "highlights": [
-        "Built a cross-platform video automation desktop application in Electron and Flask, cutting rendering and editing workflow time by 60%.",
-        "Developed audio-reactive editing with Librosa that synchronises visual transitions to the beat at 98% accuracy.",
+        "Built an autonomous content agent that writes, edits and publishes to YouTube, Instagram and Facebook on its own. It runs the channel, not just the tooling.",
+        "Cross-platform video automation in Electron and Flask, cutting rendering and editing workflow time by 60%.",
+        "Audio-reactive editing with Librosa that synchronises visual transitions to the beat at 98% accuracy.",
         "Integrated Edge-TTS voice generation with rate control and local looping fallbacks."
       ]
     },
