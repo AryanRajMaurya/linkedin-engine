@@ -193,6 +193,14 @@ change to the profile is a pull request rather than an edit in a form.
 }
 ```
 
+## See also
+
+- [`linkedin-mcp`](https://github.com/AryanRajMaurya/linkedin-mcp) — the same
+  capability as a Model Context Protocol server, so any MCP-capable agent
+  can read the profile, check a draft and publish it.
+- [`shipfree`](https://github.com/AryanRajMaurya/shipfree) — the Agent Skill
+  for deploying AI services on free tiers.
+
 ## Development
 
 ```bash
