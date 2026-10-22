@@ -1,0 +1,72 @@
+[project]
+name = "linkedin-engine"
+version = "0.1.0"
+description = "Publish what you actually shipped, and keep your LinkedIn profile honest."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Aryan Raj Maurya" }]
+keywords = [
+  "linkedin",
+  "content",
+  "automation",
+  "developer-tools",
+  "agent-skill",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Communications",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+# No runtime dependencies. The tool speaks LinkedIn's HTTP API directly, so
+# there is nothing to keep up to date and nothing to audit but this code.
+dependencies = []
+
+[project.optional-dependencies]
+# Reading a YAML profile, rather than the JSON one.
+yaml = ["pyyaml>=6.0"]
+dev = ["pytest>=8.0", "ruff>=0.6", "mypy>=1.11"]
+
+[project.scripts]
+linkedin-engine = "linkedin_engine.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/AryanRajMaurya/linkedin-engine"
+Repository = "https://github.com/AryanRajMaurya/linkedin-engine"
+Issues = "https://github.com/AryanRajMaurya/linkedin-engine/issues"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+extend-exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "NPY", "S"]
+ignore = ["E501", "S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+python_version = "3.10"
+packages = ["linkedin_engine"]
+mypy_path = "src"
+warn_unused_configs = true
+ignore_missing_imports = true
