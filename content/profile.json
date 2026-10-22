@@ -1,0 +1,118 @@
+{
+  "$comment": [
+    "The source of truth for the LinkedIn profile.",
+    "Everything the tool writes to LinkedIn comes from this file, so the",
+    "profile is reviewable in a pull request rather than edited in a form.",
+    "Run `linkedin-engine profile render` to see it as it will read."
+  ],
+  "headline": "AI/ML Engineer — Computer Vision, Real-Time Agents & Applied AI | Shipped at Scale",
+  "location": "Kanpur, Uttar Pradesh, India",
+  "about": "I build AI systems that run in the real world — not notebooks.\n\nRight now that means real-time computer vision for small, fast, hard-to-see objects (drones at 200 m), and agentic systems that stay under 500 ms end to end.\n\nA few things I have actually shipped:\n\n• Coordinate attention on YOLO11 for small-UAV detection — +4.2% mAP@0.5 and 15% fewer false positives on high-velocity targets. Lead-authored, Springer format.\n• A spatiotemporal tracker for motorcycle safety compliance — +8.7% temporal accuracy at 45+ FPS, by rejecting single-frame errors with temporal consensus.\n• Friday, an agentic voice assistant on LiveKit and the Gemini Live API: sub-500 ms turns, Mem0-backed memory, and MCP tools that actually run.\n• shipfree, an open-source Agent Skill that teaches any AI coding agent to deploy an AI service on a free tier. Every limit it quotes is checked by CI against the platforms' own documentation, because a stale limit is worse than no limit.\n\nI also spent a year on the plancks-constant-iitk simulation for IIT Kanpur's Virtual Labs — a browser-based circuit lab that ended up in front of 50,000+ students.\n\nCurrently a final-year Computer Science undergraduate in Kanpur, looking for a role where applied AI gets deployed and operated rather than prototyped. Open to remote and to visa sponsorship.",
+  "experience": [
+    {
+      "title": "Founder and Lead Engineer",
+      "organisation": "IZGIV",
+      "period": "2026 - Present",
+      "url": "https://github.com/AryanRajMaurya",
+      "highlights": [
+        "Built and run a multi-node product ecosystem: an agentic voice assistant, self-hosted LLM inference hosting, a paid AI chat panel and a high-fidelity media streaming service.",
+        "Shipped shipfree, an open-source Agent Skill for deploying AI services on free tiers, whose limits are verified against upstream documentation by CI.",
+        "Run the whole stack on Docker and Cloudflare edge tooling, with a hardened CachyOS/Arch environment and no paid infrastructure in the serving path."
+      ]
+    },
+    {
+      "title": "AI/ML Developer and Project Lead",
+      "organisation": "Friday AI",
+      "period": "2026",
+      "url": "https://github.com/AryanRajMaurya",
+      "highlights": [
+        "Engineered a low-latency voice and video agent on LiveKit and the Gemini 2.5 Flash Live API, holding end-to-end response latency under 500 ms.",
+        "Integrated persistent asynchronous memory with Mem0 to track preferences across sessions, cutting context lookup overhead by 30%.",
+        "Implemented dynamic tool execution over the Model Context Protocol, running n8n workflows and web search as agent tools."
+      ]
+    },
+    {
+      "title": "AI/ML Developer and Automation Engineer",
+      "organisation": "Cross-Platform Content Automation Suite",
+      "period": "2026",
+      "url": "https://github.com/AryanRajMaurya",
+      "highlights": [
+        "Built a cross-platform video automation desktop application in Electron and Flask, cutting rendering and editing workflow time by 60%.",
+        "Developed audio-reactive editing with Librosa that synchronises visual transitions to the beat at 98% accuracy.",
+        "Integrated Edge-TTS voice generation with rate control and local looping fallbacks."
+      ]
+    },
+    {
+      "title": "Frontend and Simulation Developer",
+      "organisation": "IIT Kanpur Virtual Labs Initiative",
+      "period": "2025",
+      "url": "https://github.com/AryanRajMaurya/plancks-constant-iitk",
+      "highlights": [
+        "Built a physics simulation module for Planck's constant determination, deployed to a platform serving 50,000+ students across India.",
+        "Designed a browser-based wire-drawing connection engine for virtual lab components, keeping calculation lag under 10 ms client-side.",
+        "Automated real-time dataset plotting and constant calculation with Plotly.js in the browser."
+      ]
+    }
+  ],
+  "featured": [
+    {
+      "title": "shipfree — deploy an AI service for $0",
+      "url": "https://github.com/AryanRajMaurya/shipfree",
+      "description": "An Agent Skill for deploying AI services on free tiers, published to twelve agent harnesses. Every limit it quotes is verified against the platform's own documentation by CI, and a weekly job opens an issue when one moves."
+    },
+    {
+      "title": "Will It Fit? — the free-tier planner",
+      "url": "https://aryanrajmaurya.github.io/freetier",
+      "description": "Enter your requests per day, CPU per request and state, and see which execution tier fits and which one breaks, and on which limit."
+    },
+    {
+      "title": "Coordinate Attention-Enhanced YOLO11 for Small UAV Surveillance",
+      "url": "https://github.com/AryanRajMaurya",
+      "description": "Lead-authored, Springer format. Coordinate attention integrated into YOLO11n to retain fine spatial detail for small, high-velocity UAV detection: +4.2% mAP@0.5 and 15% fewer false positives under complex backgrounds."
+    },
+    {
+      "title": "Spatio-Temporal Reasoning for Motorcycle Safety Compliance",
+      "url": "https://github.com/AryanRajMaurya",
+      "description": "Lead-authored, Springer format. A hierarchical computer vision system using YOLOv11 tracking and temporal status voting to resolve single-frame errors, improving temporal tracking accuracy by 8.7% at 45+ FPS."
+    }
+  ],
+  "skills": [
+    "PyTorch",
+    "YOLOv8",
+    "YOLOv11",
+    "OpenCV",
+    "BLIP-2",
+    "Coordinate Attention",
+    "Albumentations",
+    "Model Context Protocol",
+    "LiveKit",
+    "Gemini Live",
+    "LangChain",
+    "RAG",
+    "Mem0",
+    "Chroma DB",
+    "Hugging Face",
+    "Python",
+    "FastAPI",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Electron",
+    "Flask",
+    "WebSockets",
+    "WebRTC",
+    "FFmpeg",
+    "MoviePy",
+    "Librosa",
+    "Edge-TTS",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "Cloudflare Workers",
+    "Durable Objects",
+    "Docker",
+    "n8n",
+    "Advanced Linux"
+  ]
+}
