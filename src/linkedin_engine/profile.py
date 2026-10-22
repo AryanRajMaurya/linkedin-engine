@@ -64,6 +64,7 @@ class Profile:
     experience: list[Experience] = field(default_factory=list)
     featured: list[dict[str, str]] = field(default_factory=list)
     skills: list[str] = field(default_factory=list)
+    websites: list[dict[str, str]] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> Profile:
@@ -84,6 +85,7 @@ class Profile:
             ],
             featured=list(data.get("featured", [])),
             skills=list(data.get("skills", [])),
+            websites=list(data.get("websites", [])),
         )
 
 
@@ -159,6 +161,18 @@ def render_profile(profile: Profile) -> str:
                 parts.append(url)
                 parts.append("")
 
+    if profile.websites:
+        parts.append("## Links")
+        parts.append("")
+        for item in profile.websites:
+            label = item.get("label", "")
+            url = item.get("url", "")
+            if label and url:
+                parts.append(f"- [{label}]({url})")
+            elif url:
+                parts.append(f"- {url}")
+        parts.append("")
+
     if profile.skills:
         parts.append("## Skills")
         parts.append("")
@@ -219,6 +233,9 @@ def apply_profile(client: Any, written: Profile, dry_run: bool = True) -> dict[s
     dict
         ``{"changed": {...}, "sent": bool, "response": {...}}``
     """
+    # The links are rendered but not sent. LinkedIn's member profile
+    # endpoint does not take a websites field, and sending an unknown one
+    # turns the whole update into a 400.
     fields: dict[str, Any] = {}
     if written.headline:
         fields["headline"] = written.headline

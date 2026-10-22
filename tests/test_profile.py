@@ -13,6 +13,17 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # ------------------------------------------------------------------ profile
 
 
+class _FakeClient:
+    """A client that records what it was asked to write."""
+
+    def __init__(self) -> None:
+        self.sent = False
+
+    def update_profile(self, fields):
+        self.sent = True
+        return {"ok": True}
+
+
 def test_the_shipped_profile_file_is_valid() -> None:
     data = json.loads((REPO_ROOT / "content" / "profile.json").read_text())
     written = profile_module.Profile.from_dict(data)
@@ -65,3 +76,34 @@ def test_applying_a_profile_is_a_dry_run_by_default() -> None:
     assert result["sent"] is False
     assert client.sent is False
     assert result["changed"]["headline"] == "New"
+
+
+def test_the_links_section_renders() -> None:
+    written = profile_module.Profile(
+        websites=[
+            {"label": "YouTube", "url": "https://www.youtube.com/@theizgiv"},
+            {"url": "https://example.com/only-a-url"},
+        ]
+    )
+    rendered = profile_module.render_profile(written)
+    assert "## Links" in rendered
+    assert "https://www.youtube.com/@theizgiv" in rendered
+    assert "https://example.com/only-a-url" in rendered
+
+
+def test_the_shipped_profile_lists_the_izgiv_channels() -> None:
+    written = profile_module.load_profile(REPO_ROOT / "content" / "profile.json")
+    urls = " ".join(item.get("url", "") for item in written.websites)
+    assert "youtube.com/@theizgiv" in urls
+    assert "instagram.com/theizgiv" in urls
+    assert "facebook.com/theizgiv" in urls
+
+
+def test_the_links_are_not_pushed_to_the_api() -> None:
+    """The API does not accept a websites field, so it is never sent."""
+    written = profile_module.Profile(
+        headline="New",
+        websites=[{"label": "YouTube", "url": "https://www.youtube.com/@theizgiv"}],
+    )
+    result = profile_module.apply_profile(_FakeClient(), written)
+    assert "websites" not in result["changed"]

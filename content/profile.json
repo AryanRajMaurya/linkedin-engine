@@ -5,9 +5,9 @@
     "profile is reviewable in a pull request rather than edited in a form.",
     "Run `linkedin-engine profile render` to see it as it will read."
   ],
-  "headline": "AI/ML Engineer — Computer Vision, Real-Time Agents & Applied AI | Shipped at Scale",
+  "headline": "AI/ML Engineer \u2014 Computer Vision, Real-Time Agents & Applied AI | Shipped at Scale",
   "location": "Kanpur, Uttar Pradesh, India",
-  "about": "I build AI systems that run in the real world — not notebooks.\n\nRight now that means real-time computer vision for small, fast, hard-to-see objects (drones at 200 m), and agentic systems that stay under 500 ms end to end.\n\nA few things I have actually shipped:\n\n• Coordinate attention on YOLO11 for small-UAV detection — +4.2% mAP@0.5 and 15% fewer false positives on high-velocity targets. Lead-authored, Springer format.\n• A spatiotemporal tracker for motorcycle safety compliance — +8.7% temporal accuracy at 45+ FPS, by rejecting single-frame errors with temporal consensus.\n• Friday, an agentic voice assistant on LiveKit and the Gemini Live API: sub-500 ms turns, Mem0-backed memory, and MCP tools that actually run.\n• shipfree, an open-source Agent Skill that teaches any AI coding agent to deploy an AI service on a free tier. Every limit it quotes is checked by CI against the platforms' own documentation, because a stale limit is worse than no limit.\n\nI also spent a year on the plancks-constant-iitk simulation for IIT Kanpur's Virtual Labs — a browser-based circuit lab that ended up in front of 50,000+ students.\n\nCurrently a final-year Computer Science undergraduate in Kanpur, looking for a role where applied AI gets deployed and operated rather than prototyped. Open to remote and to visa sponsorship.",
+  "about": "I build AI systems that run in the real world \u2014 not notebooks.\n\nRight now that means real-time computer vision for small, fast, hard-to-see objects (drones at 200 m), and agentic systems that stay under 500 ms end to end.\n\nA few things I have actually shipped:\n\n\u2022 Coordinate attention on YOLO11 for small-UAV detection \u2014 +4.2% mAP@0.5 and 15% fewer false positives on high-velocity targets. Lead-authored, Springer format.\n\u2022 A spatiotemporal tracker for motorcycle safety compliance \u2014 +8.7% temporal accuracy at 45+ FPS, by rejecting single-frame errors with temporal consensus.\n\u2022 Friday, an agentic voice assistant on LiveKit and the Gemini Live API: sub-500 ms turns, Mem0-backed memory, and MCP tools that actually run.\n\u2022 shipfree, an open-source Agent Skill that teaches any AI coding agent to deploy an AI service on a free tier. Every limit it quotes is checked by CI against the platforms' own documentation, because a stale limit is worse than no limit.\n\n\u2022 @TheIZGIV, an autonomous content agent that writes, edits and publishes to YouTube, Instagram and Facebook on its own.\n\nI also spent a year on the plancks-constant-iitk simulation for IIT Kanpur's Virtual Labs \u2014 a browser-based circuit lab that ended up in front of 50,000+ students.\n\nCurrently a final-year Computer Science undergraduate in Kanpur, looking for a role where applied AI gets deployed and operated rather than prototyped. Open to remote and to visa sponsorship.",
   "experience": [
     {
       "title": "Founder and Lead Engineer",
@@ -56,12 +56,12 @@
   ],
   "featured": [
     {
-      "title": "shipfree — deploy an AI service for $0",
+      "title": "shipfree \u2014 deploy an AI service for $0",
       "url": "https://github.com/AryanRajMaurya/shipfree",
       "description": "An Agent Skill for deploying AI services on free tiers, published to twelve agent harnesses. Every limit it quotes is verified against the platform's own documentation by CI, and a weekly job opens an issue when one moves."
     },
     {
-      "title": "Will It Fit? — the free-tier planner",
+      "title": "Will It Fit? \u2014 the free-tier planner",
       "url": "https://aryanrajmaurya.github.io/freetier",
       "description": "Enter your requests per day, CPU per request and state, and see which execution tier fits and which one breaks, and on which limit."
     },
@@ -114,5 +114,31 @@
     "Docker",
     "n8n",
     "Advanced Linux"
+  ],
+  "websites": [
+    {
+      "label": "YouTube \u2014 @TheIZGIV",
+      "url": "https://www.youtube.com/@theizgiv"
+    },
+    {
+      "label": "Instagram \u2014 @TheIZGIV",
+      "url": "https://www.instagram.com/theizgiv/"
+    },
+    {
+      "label": "Facebook \u2014 @TheIZGIV",
+      "url": "https://www.facebook.com/theizgiv"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/AryanRajMaurya"
+    },
+    {
+      "label": "shipfree",
+      "url": "https://github.com/AryanRajMaurya/shipfree"
+    },
+    {
+      "label": "Will It Fit?",
+      "url": "https://aryanrajmaurya.github.io/freetier"
+    }
   ]
 }
